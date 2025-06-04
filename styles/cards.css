@@ -1,0 +1,113 @@
+.card {
+    position: relative;
+    width: 280px;
+    height: 390px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-overlay {
+    transform: translateY(0);
+}
+
+.card-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.card-rarity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rarity-badge {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.rarity-badge.legendary {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.rarity-badge.rare {
+    background: linear-gradient(45deg, #9b59b6, #e74c3c);
+    color: white;
+    box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+}
+
+.rarity-badge.common {
+    background: linear-gradient(45deg, #95a5a6, #bdc3c7);
+    color: #2c3e50;
+}
+
+.rarity-badge.exotic {
+    background: linear-gradient(45deg, #000000, #8b00ff, #00ffff);
+    background-size: 200% 200%;
+    color: white;
+    box-shadow: 0 0 15px rgba(139, 0, 255, 0.8);
+    animation: exoticShimmer 2s ease-in-out infinite;
+}
+
+.rarity-badge.mythic {
+    background: linear-gradient(45deg, #ff1493, #ff6347, #ffd700);
+    background-size: 200% 200%;
+    color: white;
+    box-shadow: 0 0 12px rgba(255, 20, 147, 0.6);
+    animation: mythicShimmer 2.5s ease-in-out infinite;
+}
+
+.rarity-percentage {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+/* removed individual rarity hover/animation styles - moved to animations.css */
