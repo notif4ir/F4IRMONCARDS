@@ -25,6 +25,54 @@ const CARD_DATA = [
         percentage: 1.5
     },
     {
+        id: 'sonicexe',
+        name: 'SONIC.EXE',
+        image: '/SONIC.EXE',
+        description: '.. / .- -- / --. --- -.. .-.-.- / .... .- .... .- .... .- .... .-',
+        rarity: 'mythic',
+        percentage: 0.7
+    },
+    {
+        id: 'guest666',
+        name: 'Guest 666',
+        image: '/Guest 666.png',
+        description: 'The ultimate myth back in the days, comes from roblox. 6̴̱̟̱̝̼̘͚̌̈́̂́̈̕̚͠6̶͚̳͛͌̚͜͝͠ͅ6̶̭̬̱͍̝̅̽̈́̇̔̌ͅ',
+        rarity: 'mythic',
+        percentage: 0.9
+    },
+    {
+        id: 'jk',
+        name: 'JK',
+        image: '/JK.png',
+        description: 'Worst enemy of KJ, he is the oppisite. (his attacks can only be used against KJ lol)',
+        rarity: 'legendary',
+        percentage: 1
+    },
+        {
+        id: 'rush',
+        name: 'Rush',
+        image: '/Rush.png',
+        description: 'Comes from the game Doors in Roblox, he doesnt like people that are in his way when hes rushing the halls.',
+        rarity: 'common',
+        percentage: 13
+    },
+    {
+        id: 'seek',
+        name: 'Seek',
+        image: '/Seek.png',
+        description: 'Comes from the game Doors in Roblox like Rush or Figure, it chases down anyone that irritates him.',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'figure',
+        name: 'Figure',
+        image: '/Figure.png',
+        description: 'Comes from the game Doors in Roblox, it is made out of an meaty like substance. It is known for being blind and being super smelly too.',
+        rarity: 'rare',
+        percentage: 4
+    },
+    {
         id: 'c00lkid',
         name: 'C00lkid',
         image: '/c00lkid.png',
