@@ -4,81 +4,81 @@ const CARD_DATA = [
         id: 'franus',
         name: 'Franus',
         image: '/franus.png',
-        description: 'A Pokémon-style trading card featuring a hamster. The card is titled "franus," and gives the hamster\'s stats: HT: 8 WT: 4 lbs. The card has two attacks: "chomik punch" for 5 damage and "chomik bite" for 100 damage.',
+        description: 'franus is an very cool chomik, he likes seeds and cheez.',
         rarity: 'common',
-        percentage: 15.5
+        percentage: 14
     },
     {
         id: 'notikaper',
         name: 'Notikaper',
         image: '/notikaper (1).png',
-        description: 'A Pokémon-style trading card featuring an original character named "notikaper". The card is yellow and orange and depicts a Roblox-like character wearing a graduation cap and yellow hoodie. The card includes stats, abilities ("Pistol Pew" and "Animate Power"), and type weaknesses and resistances.',
-        rarity: 'rare',
-        percentage: 8.2
+        description: 'plays roblox, animates and tests sometimes. friend of imnotf4ir',
+        rarity: 'exotic',
+        percentage: 0
     },
     {
         id: 'noli',
         name: 'Noli',
         image: '/Noli (1).png',
-        description: 'A Pokémon card featuring a stylized image of the Statue of Liberty, rendered in shades of purple and black. The card is titled "Noli," with a HP of 300. The Pokémon is described as "forsaken," with listed height and weight. Two moves are detailed: "Vortex Punch" (150 damage) and "Purple Charge" (100 damage to all enemies).',
+        description: 'Yet another killer from the roblox game "Forsaken", he is very scary looking with his purple glitched appearance.',
         rarity: 'legendary',
-        percentage: 2.1
+        percentage: 1.5
     },
     {
         id: 'c00lkid',
         name: 'C00lkid',
         image: '/c00lkid.png',
-        description: 'A Pokémon card depicting "c00lkid," a basic type with 400 HP. The card\'s artwork is primarily red and obscured, suggesting a damaged or corrupted image. The text displays the Pokémon\'s abilities: "Speed Override" (100 damage), which targets the lowest health enemy and sets it on fire, and "Pizza Delivery" (+100 health regeneration).',
+        description: 'Popular roblox hacker back in the days, killer from the game "Forsaken" on roblox. He is a very cool kid.',
         rarity: 'legendary',
-        percentage: 1.8
+        percentage: 2.5
     },
     {
         id: 'johndoe',
         name: 'John Doe',
         image: '/John Doe.png',
-        description: 'A Pokémon-esque trading card featuring a Roblox character named John Doe. The card has a fiery orange background and depicts John Doe with a red, glowing eye. The card details include attack names "Corrupt Energy" and "Digital Footprint," along with HP, weakness and resistance stats.',
+        description: 'He likes playing with playdough',
         rarity: 'rare',
-        percentage: 7.5
+        percentage: 4
     },
     {
         id: 'kj',
         name: 'KJ',
         image: '/KJ.png',
-        description: 'A Pokémon card featuring a stylized illustration of KJ, a battlegrounds Pokémon. The card shows KJ with a fierce expression, primarily in shades of red and white. Its abilities include "Swift Sweep," which deals 125 damage, and "KJ Counter," which reflects damage dealt in the previous round.',
+        description: 'Do not ever mess with KJ, this guy can destroy the whole universe in seconds. NAZENARINA! (comes from the KJ Saga on youtube)',
         rarity: 'rare',
-        percentage: 6.8
+        percentage: 2.5
     },
     {
         id: 'jason',
         name: 'Jason',
         image: '/Jason.png',
-        description: 'This is a fan-made Pokémon card featuring Jason Voorhees from the Friday the 13th franchise. The card is designed in the style of a Pokémon card, with artwork showing Jason wearing his iconic hockey mask and wielding a machete. The card includes stats, abilities ("Sword Slash" and "Bursting Rage"), and type information.',
-        rarity: 'legendary',
-        percentage: 1.2
+        description: 'Killer from the game "Forsaken" on roblox and one of the popular myths back in the days.',
+        rarity: 'rare',
+        percentage: 4.5
     },
     {
         id: 'lxlxlxl',
         name: '1x1x1x1',
         image: '/1x1x1x1.png',
-        description: 'A Pokemon-style trading card featuring a stylized figure in sunglasses, predominantly green and red, with the name "lxlxlxl" at the top. The card details two attacks: "Mass Infection" which deals damage and weakens enemies, and "Entanglement" which blocks and damages a selected enemy.',
+        description: 'This is 1eggs from "Forsaken" on roblox, he has an ghost like appearance. He is one of the strongest killers in forsaken, thats why he has so much power in his attacks.',
         rarity: 'legendary',
-        percentage: 0.9
+        percentage: 1
     },
     {
         id: 'imnotf4ir',
         name: 'Imnotf4ir',
         image: '/imnotf4ir (2).png',
-        description: 'A Pokémon-style trading card featuring a Roblox character named "imnotf4ir." The character is depicted wearing a purple robe and a witch\'s hat, holding a green and purple drink. The card includes stats, abilities ("System Hack" and "Flaming Kick"), and artwork consistent with a Pokémon card design.',
-        rarity: 'rare',
-        percentage: 9.3
+        description: '(maybe) Popular roblox developer, made many games and hosts groups such as "Sub Infection Team" and "Nonexistant Studios". friend of notikaper',
+        rarity: 'exotic',
+        percentage: 0
     },
     {
         id: 'gubby',
         name: 'Gubby',
         image: '/Gubby.png',
-        description: 'A Pokémon-style trading card featuring "Gubby," a blocky, rabbit-like creature holding a shotgun. The card details Gubby\'s stats, including HP (300), attacks ("Gubby Blast" and "Kong Fu Kick"), and weaknesses/resistances. The design incorporates a dark, stylized background and clearly labeled attributes common to collectible card games.',
+        description: 'This guy is the best killer in Forsaken (lie), he is very sweet AND OVERPOWERED (lie).',
         rarity: 'common',
-        percentage: 12.7
+        percentage: 9
     }
 ];
 
@@ -88,35 +88,35 @@ const RARITY_CONFIG = {
         label: 'Exotic',
         minPercentage: 0,
         maxPercentage: 0,
-        particleCount: 30,
+        particleCount: 15,
         glowIntensity: 'extreme'
     },
     mythic: {
         label: 'Mythic',
         minPercentage: 0,
         maxPercentage: 0.3,
-        particleCount: 25,
+        particleCount: 15,
         glowIntensity: 'very-high'
     },
     legendary: {
         label: 'Legendary',
         minPercentage: 0.3,
         maxPercentage: 3,
-        particleCount: 20,
+        particleCount: 12,
         glowIntensity: 'high'
     },
     rare: {
         label: 'Rare',
         minPercentage: 3,
         maxPercentage: 10,
-        particleCount: 12,
+        particleCount: 7,
         glowIntensity: 'medium'
     },
     common: {
         label: 'Common',
         minPercentage: 10,
         maxPercentage: 100,
-        particleCount: 6,
+        particleCount: 3,
         glowIntensity: 'low'
     }
 };
