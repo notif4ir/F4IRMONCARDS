@@ -113,6 +113,14 @@ const CARD_DATA = [
         percentage: 3
     },
     {
+        id: 'grumble',
+        name: 'Grumble',
+        image: '/Grumble.png',
+        description: 'Comes from the game Doors in Roblox, it is an very big and huge monster. It lurks in the dark caves from "The Mines", It is known for its long tentacles and scary absence.',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
         id: 'c00lkid',
         name: 'C00lkid',
         image: '/c00lkid.png',
