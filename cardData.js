@@ -27,7 +27,7 @@ const CARD_DATA = [
     {
         id: 'sonicexe',
         name: 'SONIC.EXE',
-        image: '/SONIC.EXE',
+        image: '/SONIC.EXE.png',
         description: '.. / .- -- / --. --- -.. .-.-.- / .... .- .... .- .... .- .... .-',
         rarity: 'mythic',
         percentage: 0.7
@@ -61,16 +61,16 @@ const CARD_DATA = [
         name: 'Seek',
         image: '/Seek.png',
         description: 'Comes from the game Doors in Roblox like Rush or Figure, it chases down anyone that irritates him.',
-        rarity: 'legendary',
-        percentage: 3
+        rarity: 'rare',
+        percentage: 4
     },
     {
         id: 'figure',
         name: 'Figure',
         image: '/Figure.png',
         description: 'Comes from the game Doors in Roblox, it is made out of an meaty like substance. It is known for being blind and being super smelly too.',
-        rarity: 'rare',
-        percentage: 4
+        rarity: 'legendary',
+        percentage: 3
     },
     {
         id: 'c00lkid',
