@@ -273,7 +273,7 @@ getAdjustedWeights(multiplier) {
             rare: 30,
             legendary: 12,
             mythic: 2.5,
-            exotic: 0.5
+            exotic: 0
         }
     }
 
@@ -283,7 +283,7 @@ getAdjustedWeights(multiplier) {
             rare: 25,
             legendary: 45,
             mythic: 18,
-            exotic: 2
+            exotic: 0
         }
     }
 
