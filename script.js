@@ -218,82 +218,77 @@ class PokemonCardViewer {
     }
 
     rollRandomCard() {
-        const multiplier = parseInt(this.rollMultiplier.value);
-        
-        // Adjust rarity weights based on multiplier
-        const adjustedWeights = this.getAdjustedWeights(multiplier);
-        
-        // Calculate cumulative weights
-        const weights = [];
-        let totalWeight = 0;
-        
-        this.cards.forEach(card => {
-            const weight = adjustedWeights[card.rarity] || 1;
-            totalWeight += weight;
-            weights.push(totalWeight);
-        });
-        
-        // Generate random number and find the card
-        const random = Math.random() * totalWeight;
-        let selectedCard = this.cards[this.cards.length - 1]; // fallback
-        
-        for (let i = 0; i < weights.length; i++) {
-            if (random <= weights[i]) {
-                selectedCard = this.cards[i];
-                break;
+    const multiplier = parseInt(this.rollMultiplier.value)
+    const adjustedWeights = this.getAdjustedWeights(multiplier)
+
+    const weights = []
+    let totalWeight = 0
+
+    this.cards.forEach(card => {
+        const weight = adjustedWeights[card.rarity]
+        if (weight > 0) {
+            totalWeight += weight
+            weights.push(totalWeight)
+        } else {
+            weights.push(totalWeight)
+        }
+    })
+
+    const random = Math.random() * totalWeight
+    let selectedCard = this.cards[this.cards.length - 1]
+
+    for (let i = 0; i < weights.length; i++) {
+        if (random <= weights[i]) {
+            if (adjustedWeights[this.cards[i].rarity] > 0) {
+                selectedCard = this.cards[i]
+                break
             }
         }
-        
-        // Add roll animation to button
-        this.rollBtn.style.transform = 'rotate(720deg) scale(1.2)';
-        this.rollBtn.disabled = true;
-        
-        setTimeout(() => {
-            this.rollBtn.style.transform = 'rotate(0deg) scale(1)';
-            this.rollBtn.disabled = false;
-            this.openModal(selectedCard);
-        }, 800);
-        
-        this.playSound('click');
     }
 
-    getAdjustedWeights(multiplier) {
-        const baseWeights = {
-            common: 89.8,
-            rare: 7.5,
-            legendary: 2.5,
-            mythic: 0.2,
-            exotic: 0.0
-        };
+    this.rollBtn.style.transform = 'rotate(720deg) scale(1.2)'
+    this.rollBtn.disabled = true
 
-        if (multiplier === 1) {
-            return baseWeights;
-        }
+    setTimeout(() => {
+        this.rollBtn.style.transform = 'rotate(0deg) scale(1)'
+        this.rollBtn.disabled = false
+        this.openModal(selectedCard)
+    }, 800)
 
-        // 2x Roll: Boost rare+ cards significantly
-        if (multiplier === 2) {
-            return {
-                common: 40,
-                rare: 35,
-                legendary: 20,
-                mythic: 4.5,
-                exotic: 0.5
-            };
-        }
+    this.playSound('click')
+}
 
-        // 3x Roll: Heavily favor legendary+ cards
-        if (multiplier === 3) {
-            return {
-                common: 10,
-                rare: 25,
-                legendary: 45,
-                mythic: 18,
-                exotic: 2
-            };
-        }
-
-        return baseWeights;
+getAdjustedWeights(multiplier) {
+    const baseWeights = {
+        common: 89.8,
+        rare: 7.5,
+        legendary: 2.5,
+        mythic: 0.2,
+        exotic: 0
     }
+
+    if (multiplier === 2) {
+        return {
+            common: 55,
+            rare: 30,
+            legendary: 12,
+            mythic: 2.5,
+            exotic: 0.5
+        }
+    }
+
+    if (multiplier === 3) {
+        return {
+            common: 10,
+            rare: 25,
+            legendary: 45,
+            mythic: 18,
+            exotic: 2
+        }
+    }
+
+    return baseWeights
+}
 
     setupEventListeners() {
         // Filter buttons
