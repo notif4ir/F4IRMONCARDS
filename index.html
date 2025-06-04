@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Card Collection Viewer</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/particles.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+    <div class="stars-bg" id="stars"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="title-text">F4IRMON Cards Shop</span>
+                <div class="title-glow"></div>
+            </h1>
+        </header>
+
+        <div class="controls">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Cards</button>
+                <button class="filter-btn" data-filter="exotic">Exotic</button>
+                <button class="filter-btn" data-filter="mythic">Mythic</button>
+                <button class="filter-btn" data-filter="legendary">Legendary</button>
+                <button class="filter-btn" data-filter="rare">Rare</button>
+                <button class="filter-btn" data-filter="common">Common</button>
+            </div>
+            
+            <div class="roll-section">
+                <div class="roll-dropdown">
+                    <select id="rollMultiplier" class="roll-multiplier-select">
+                        <option value="1">1x Roll</option>
+                        <option value="2">2x Roll</option>
+                        <option value="3">3x Roll</option>
+                    </select>
+                </div>
+                <button class="roll-btn" id="rollBtn">🎲 Roll Card</button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search cards..." class="search-input">
+                <div class="search-icon">🔍</div>
+            </div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+
+        <div class="modal" id="cardModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">×</button>
+                <div class="modal-card-container">
+                    <img id="modalCardImage" src="" alt="" class="modal-card-image">
+                    <div class="modal-particles" id="modalParticles"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalCardName"></h2>
+                    <div class="rarity-info">
+                        <span class="rarity-label" id="modalRarityLabel"></span>
+                        <span class="rarity-percentage" id="modalRarityPercentage"></span>
+                    </div>
+                    <p id="modalCardDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.158.0/build/three.module.js"
+        }
+    }
+    </script>
+    <script src="cardData.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
