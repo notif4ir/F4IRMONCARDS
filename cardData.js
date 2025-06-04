@@ -14,7 +14,7 @@ const CARD_DATA = [
         image: '/notikaper (1).png',
         description: 'plays roblox, animates and tests sometimes. friend of imnotf4ir',
         rarity: 'exotic',
-        percentage: 0
+        percentage: -1
     },
     {
         id: 'noli',
@@ -38,7 +38,7 @@ const CARD_DATA = [
         image: '/John Doe.png',
         description: 'He likes playing with playdough',
         rarity: 'rare',
-        percentage: 4
+        percentage: 3
     },
     {
         id: 'kj',
@@ -70,7 +70,7 @@ const CARD_DATA = [
         image: '/imnotf4ir (2).png',
         description: '(maybe) Popular roblox developer, made many games and hosts groups such as "Sub Infection Team" and "Nonexistant Studios". friend of notikaper',
         rarity: 'exotic',
-        percentage: 0
+        percentage: -1
     },
     {
         id: 'gubby',
@@ -78,7 +78,7 @@ const CARD_DATA = [
         image: '/Gubby.png',
         description: 'This guy is the best killer in Forsaken (lie), he is very sweet AND OVERPOWERED (lie).',
         rarity: 'common',
-        percentage: 10
+        percentage: 16
     },
     {
         id: 'slap',
@@ -86,7 +86,7 @@ const CARD_DATA = [
         image: '/Slap.png',
         description: 'One of KJs enemies, he likes to slap KJ till he gets mad.',
         rarity: 'common',
-        percentage: 8
+        percentage: 12
     }
 ];
 
