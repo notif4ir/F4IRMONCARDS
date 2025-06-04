@@ -125,8 +125,8 @@ const CARD_DATA = [
         name: 'Gubby',
         image: '/Gubby.png',
         description: 'This guy is the best killer in Forsaken (lie), he is very sweet AND OVERPOWERED (lie).',
-        rarity: 'common',
-        percentage: 16
+        rarity: 'rare',
+        percentage: 8
     },
     {
         id: 'slap',
@@ -134,7 +134,7 @@ const CARD_DATA = [
         image: '/Slap.png',
         description: 'One of KJs enemies, he likes to slap KJ till he gets mad.',
         rarity: 'common',
-        percentage: 12
+        percentage: 10
     }
 ];
 
