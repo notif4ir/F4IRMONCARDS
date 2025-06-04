@@ -41,6 +41,14 @@ const CARD_DATA = [
         percentage: 0.9
     },
     {
+        id: 'bob',
+        name: 'Bob',
+        image: '/Bob.png',
+        description: 'Comes from the same roblox game as Bear and is an creepy looking black blob with bloody red eyes.',
+        rarity: 'rare',
+        percentage: 3.5
+    },
+    {
         id: 'jk',
         name: 'JK',
         image: '/JK.png',
