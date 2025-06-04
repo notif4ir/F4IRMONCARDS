@@ -61,6 +61,46 @@ const CARD_DATA = [
         name: 'Seek',
         image: '/Seek.png',
         description: 'Comes from the game Doors in Roblox like Rush or Figure, it chases down anyone that irritates him.',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'blue',
+        name: 'Blue',
+        image: '/Blue.png',
+        description: 'One of the Roblox "Rainbow Friends" members, he likes to hug people.',
+        rarity: 'common',
+        percentage: 14
+    },
+    {
+        id: 'green',
+        name: 'Green',
+        image: '/Green.png',
+        description: 'One of the Roblox "Rainbow Friends" members, he likes green and is blind. Eats any people that are irritating him.',
+        rarity: 'rare',
+        percentage: 4
+    },
+        {
+        id: 'orange',
+        name: 'Orange',
+        image: '/Orange.png',
+        description: 'One of the Roblox "Rainbow Friends" members, orange is an dog that likes treats. He is pretty fast too.',
+        rarity: 'rare',
+        percentage: 4
+    },
+    {
+        id: 'red',
+        name: 'Red',
+        image: '/Red.png',
+        description: 'He is the founder of Roblox Rainbow Friends, mad scientist that created all of the monsters we know to this day.',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'purple',
+        name: 'Purple',
+        image: '/Purple.png',
+        description: 'One of the Roblox "Rainbow Friends" members, he lurks in the darkness and catches any players he can feel through his senses.',
         rarity: 'rare',
         percentage: 4
     },
