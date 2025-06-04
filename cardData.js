@@ -73,6 +73,14 @@ const CARD_DATA = [
         percentage: 14
     },
     {
+        id: 'mrarms',
+        name: 'Mr. Arms',
+        image: '/Mr. Arms.png',
+        description: 'i̸̲̺̎̌t̶̘͋̑s̷̳̼͑ ̷͉̔y̴̟̥̓ě̸̬̅ŕ̸͘͜ͅ ̷͎͓͋͛b̴̤̈͝ĭ̷̦͗r̶̭̔t̶͈͈̕͝h̵̬͍͠d̴̤̈͘ä̴̢y̸̛͚̬̌ ̵̺̘̓p̵̳͕̅̑ã̷̡̞r̸͈̈́t̶͈̬̋ý̶͕͜',
+        rarity: 'common',
+        percentage: 14
+    },
+    {
         id: 'green',
         name: 'Green',
         image: '/Green.png',
