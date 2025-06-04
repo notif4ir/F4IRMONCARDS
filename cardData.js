@@ -6,7 +6,7 @@ const CARD_DATA = [
         image: '/franus.png',
         description: 'franus is an very cool chomik, he likes seeds and cheez. (only 1 exists)',
         rarity: 'exotic',
-        percentage: 0
+        percentage: -1
     },
     {
         id: 'notikaper',
