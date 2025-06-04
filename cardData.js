@@ -88,13 +88,21 @@ const CARD_DATA = [
         rarity: 'rare',
         percentage: 4
     },
-        {
+    {
         id: 'orange',
         name: 'Orange',
         image: '/Orange.png',
         description: 'One of the Roblox "Rainbow Friends" members, orange is an dog that likes treats. He is pretty fast too.',
         rarity: 'rare',
         percentage: 4
+    },
+    {
+        id: 'bear',
+        name: 'Bear',
+        image: '/Bear.png',
+        description: 'This is bear, he can be found in Roblox games like "Bear*" or "Bear (Alpha)". He is an scary looking bear of course.',
+        rarity: 'legendary',
+        percentage: 3
     },
     {
         id: 'red',
