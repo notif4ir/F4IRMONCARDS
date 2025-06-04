@@ -52,6 +52,8 @@ class PokemonCardViewer {
             hover: new Audio('/hover.mp3'),
             click: new Audio('/click.mp3'),
             modal: new Audio('/modal.mp3'),
+            exotic: new Audio('/exotic.mp3'),
+            mythic: new Audio('/mythic.mp3'),
             legendary: new Audio('/legendary.mp3'),
             rare: new Audio('/rare.mp3'),
             common: new Audio('/common.mp3')
