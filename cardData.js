@@ -4,9 +4,9 @@ const CARD_DATA = [
         id: 'franus',
         name: 'Franus',
         image: '/franus.png',
-        description: 'franus is an very cool chomik, he likes seeds and cheez.',
-        rarity: 'common',
-        percentage: 14
+        description: 'franus is an very cool chomik, he likes seeds and cheez. (only 1 exists)',
+        rarity: 'exotic',
+        percentage: 0
     },
     {
         id: 'notikaper',
