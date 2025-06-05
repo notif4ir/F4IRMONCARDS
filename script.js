@@ -118,52 +118,43 @@ class PokemonCardViewer {
         }
     }
 
-    createCardElement(card) {
-        const cardDiv = document.createElement('div');
-        cardDiv.className = `card ${card.rarity}`;
-        cardDiv.style.opacity = '0';
-        cardDiv.style.transform = 'translateY(50px) rotateY(-15deg)';
-        cardDiv.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+createCardElement(card) {
+    const cardDiv = document.createElement('div')
+    cardDiv.className = `card ${card.rarity}`
+    cardDiv.style.opacity = '0'
+    cardDiv.style.transform = 'translateY(50px) rotateY(-15deg)'
+    cardDiv.style.transition = 'all 0.6s ease-out'
 
-        const rarityConfig = RARITY_CONFIG[card.rarity];
-        
-        cardDiv.innerHTML = `
-            <div class="card-inner">
-                <img src="${card.image}" alt="${card.name}" class="card-image">
-                <div class="card-particles"></div>
-                <div class="card-overlay">
-                    <div class="card-name">${card.name}</div>
-                    <div class="card-rarity">
-                        <span class="rarity-badge ${card.rarity}">${rarityConfig.label}</span>
-                        <span class="rarity-percentage">${card.percentage}%</span>
-                    </div>
+    const rarityConfig = RARITY_CONFIG[card.rarity]
+
+    cardDiv.innerHTML = `
+        <div class="card-inner">
+            <img src="${card.image}" alt="${card.name}" class="card-image">
+            <div class="card-particles"></div>
+            <div class="card-overlay">
+                <div class="card-name">${card.name}</div>
+                <div class="card-rarity">
+                    <span class="rarity-badge ${card.rarity}">${rarityConfig.label}</span>
+                    <span class="rarity-percentage">${card.percentage}%</span>
                 </div>
             </div>
-        `;
+        </div>
+    `
 
-        // Add particles
-        const particlesContainer = cardDiv.querySelector('.card-particles');
-        this.createParticles(particlesContainer, card.rarity, rarityConfig.particleCount);
+    const particlesContainer = cardDiv.querySelector('.card-particles')
+    this.createParticles(particlesContainer, card.rarity, rarityConfig.particleCount)
 
-        // Add hover sound effect
-        cardDiv.addEventListener('mouseenter', () => {
-            this.playSound('hover');
-        });
+    cardDiv.addEventListener('mouseenter', () => this.playSound('hover'))
+    cardDiv.addEventListener('click', e => {
+        const x = e.clientX
+        const y = e.clientY
+        this.createClickParticles(x, y, card.rarity)
+        this.playSound('click')
+        setTimeout(() => this.openModal(card), 100)
+    })
 
-        // Add click event with particle effect
-        cardDiv.addEventListener('click', (e) => {
-            const rect = cardDiv.getBoundingClientRect();
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            this.createClickParticles(x, y, card.rarity);
-            this.playSound('click');
-            
-            setTimeout(() => this.openModal(card), 100);
-        });
-
-        return cardDiv;
-    }
+    return cardDiv
+}
 
     openModal(card) {
         const rarityConfig = RARITY_CONFIG[card.rarity];
@@ -336,25 +327,35 @@ getAdjustedWeights(multiplier) {
         });
     }
 
-    renderCards() {
-        this.cardsGrid.innerHTML = '';
+renderCards() {
+    this.cardsGrid.innerHTML = ''
+    this.cardObservers = []
 
-        this.filteredCards.forEach(card => {
-            const cardElement = this.createCardElement(card);
-            this.cardsGrid.appendChild(cardElement);
-        });
-
-        // Enhanced entrance animation with stagger effect
-        setTimeout(() => {
-            const cards = this.cardsGrid.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0) rotateY(0deg) scale(1)';
-                }, index * 150 + Math.random() * 100);
-            });
-        }, 100);
+    this.filteredCards.forEach(card => {
+        const cardElement = this.createCardElement(card)
+        this.cardsGrid.appendChild(cardElement)
+        this.observeCard(cardElement)
+    })
+}
+observeCard(cardElement) {
+    if (!this.observer) {
+        this.observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target
+                    el.style.opacity = '1'
+                    el.style.transform = 'translateY(0) rotateY(0deg) scale(1)'
+                    this.observer.unobserve(el)
+                }
+            })
+        }, {
+            rootMargin: '100px',
+            threshold: 0.1
+        })
     }
+
+    this.observer.observe(cardElement)
+}
 }
 
 // Initialize the app when DOM is loaded
