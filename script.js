@@ -121,40 +121,29 @@ class PokemonCardViewer {
 createCardElement(card) {
     const cardDiv = document.createElement('div')
     cardDiv.className = `card ${card.rarity}`
+    cardDiv.dataset.cardId = card.id
     cardDiv.style.opacity = '0'
     cardDiv.style.transform = 'translateY(50px) rotateY(-15deg)'
     cardDiv.style.transition = 'all 0.6s ease-out'
+    return cardDiv
+}
 
-    const rarityConfig = RARITY_CONFIG[card.rarity]
-
-    cardDiv.innerHTML = `
+getCardInnerHTML(card) {
+    return `
         <div class="card-inner">
             <img src="${card.image}" alt="${card.name}" class="card-image">
             <div class="card-particles"></div>
             <div class="card-overlay">
                 <div class="card-name">${card.name}</div>
                 <div class="card-rarity">
-                    <span class="rarity-badge ${card.rarity}">${rarityConfig.label}</span>
+                    <span class="rarity-badge ${card.rarity}">${RARITY_CONFIG[card.rarity].label}</span>
                     <span class="rarity-percentage">${card.percentage}%</span>
                 </div>
             </div>
         </div>
     `
-
-    const particlesContainer = cardDiv.querySelector('.card-particles')
-    this.createParticles(particlesContainer, card.rarity, rarityConfig.particleCount)
-
-    cardDiv.addEventListener('mouseenter', () => this.playSound('hover'))
-    cardDiv.addEventListener('click', e => {
-        const x = e.clientX
-        const y = e.clientY
-        this.createClickParticles(x, y, card.rarity)
-        this.playSound('click')
-        setTimeout(() => this.openModal(card), 100)
-    })
-
-    return cardDiv
 }
+
 
     openModal(card) {
         const rarityConfig = RARITY_CONFIG[card.rarity];
@@ -337,20 +326,41 @@ renderCards() {
         this.observeCard(cardElement)
     })
 }
+    
 observeCard(cardElement) {
     if (!this.observer) {
         this.observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
+                const el = entry.target
                 if (entry.isIntersecting) {
-                    const el = entry.target
-                    el.style.opacity = '1'
-                    el.style.transform = 'translateY(0) rotateY(0deg) scale(1)'
-                    this.observer.unobserve(el)
+                    if (!el.classList.contains('card-loaded')) {
+                        const cardId = el.dataset.cardId
+                        const cardData = this.cards.find(c => c.id === cardId)
+                        el.innerHTML = this.getCardInnerHTML(cardData)
+                        this.createParticles(el.querySelector('.card-particles'), cardData.rarity, RARITY_CONFIG[cardData.rarity].particleCount)
+                        el.classList.add('card-loaded')
+                        el.style.opacity = '1'
+                        el.style.transform = 'translateY(0) rotateY(0deg) scale(1)'
+
+                        el.querySelector('.card-inner').addEventListener('mouseenter', () => this.playSound('hover'))
+                        el.querySelector('.card-inner').addEventListener('click', e => {
+                            const x = e.clientX
+                            const y = e.clientY
+                            this.createClickParticles(x, y, cardData.rarity)
+                            this.playSound('click')
+                            setTimeout(() => this.openModal(cardData), 100)
+                        })
+                    }
+                } else {
+                    el.innerHTML = ''
+                    el.classList.remove('card-loaded')
+                    el.style.opacity = '0'
+                    el.style.transform = 'translateY(50px) rotateY(-15deg)'
                 }
             })
         }, {
-            rootMargin: '100px',
-            threshold: 0.1
+            rootMargin: '200px',
+            threshold: 0.05
         })
     }
 
