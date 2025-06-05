@@ -198,11 +198,11 @@ class PokemonCardViewer {
 filterCards(filter) {
     this.currentFilter = filter
 
-    if (filter === 'all') {
-        this.filteredCards = [...this.cards]
-    } else {
-        this.filteredCards = this.cards.filter(card => card.rarity === filter)
-    }
+if (filter === 'all') {
+    this.filteredCards = this.cards.filter(card => card.rarity !== 'exotic')
+} else {
+    this.filteredCards = this.cards.filter(card => card.rarity === filter)
+}
 
     this.applySearch()
 
