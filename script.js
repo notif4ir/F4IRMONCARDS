@@ -186,7 +186,7 @@ if (filter === 'all') {
 
     this.applySearch()
 
-    const rarityOrder = ['common', 'rare', 'legendary', 'mythic', 'exotic']
+    const rarityOrder = ['common', 'uncommon', 'rare', 'legendary', 'mythic', 'exotic']
 
     this.filteredCards.sort((a, b) => {
         const rarityDiff = rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
@@ -209,75 +209,84 @@ if (filter === 'all') {
         }
     }
 
-    rollRandomCard() {
+rollRandomCard() {
     const multiplier = parseInt(this.rollMultiplier.value)
     const adjustedWeights = this.getAdjustedWeights(multiplier)
 
-    const weights = []
-    let totalWeight = 0
+    const rarities = Object.keys(adjustedWeights)
+    const rarityWeights = rarities.map(r => adjustedWeights[r])
+    const totalRarityWeight = rarityWeights.reduce((a, b) => a + b, 0)
 
-    this.cards.forEach(card => {
-        const weight = adjustedWeights[card.rarity]
-        if (weight > 0) {
-            totalWeight += weight
-            weights.push(totalWeight)
-        } else {
-            weights.push(totalWeight)
-        }
-    })
+    let rand = Math.random() * totalRarityWeight
+    let selectedRarity = rarities[0]
 
-    const random = Math.random() * totalWeight
-    let selectedCard = this.cards[this.cards.length - 1]
-
-    for (let i = 0; i < weights.length; i++) {
-        if (random <= weights[i]) {
-            if (adjustedWeights[this.cards[i].rarity] > 0) {
-                selectedCard = this.cards[i]
-                break
-            }
+    for (let i = 0; i < rarities.length; i++) {
+        rand -= rarityWeights[i]
+        if (rand <= 0) {
+            selectedRarity = rarities[i]
+            break
         }
     }
 
-    this.rollBtn.style.transform = 'rotate(720deg) scale(1.2)'
-    this.rollBtn.disabled = true
+    const cardsInRarity = this.cards.filter(c => c.rarity === selectedRarity)
+    const totalCardWeight = cardsInRarity.reduce((sum, card) => sum + parseFloat(card.percentage), 0)
 
-    setTimeout(() => {
-        this.rollBtn.style.transform = 'rotate(0deg) scale(1)'
-        this.rollBtn.disabled = false
-        this.openModal(selectedCard)
-    }, 800)
+    let randCard = Math.random() * totalCardWeight
+    let selectedCard = cardsInRarity[0]
 
-    this.playSound('click')
+    for (const card of cardsInRarity) {
+        randCard -= parseFloat(card.percentage)
+        if (randCard <= 0) {
+            selectedCard = card
+            break
+        }
+    }
+
+this.playSound('click')
+
+this.openModal(selectedCard)
+
+this.rollBtn.style.transform = 'rotate(720deg) scale(1.2)'
+this.rollBtn.disabled = true
+
+setTimeout(() => {
+    this.rollBtn.style.transform = 'rotate(0deg) scale(1)'
+    this.rollBtn.disabled = false
+}, 800)
+
 }
 
 getAdjustedWeights(multiplier) {
-    const baseWeights = {
-        common: 89.8,
-        rare: 7.5,
-        legendary: 2.5,
-        mythic: 0.2,
+const baseWeights = {
+    common: 70,
+    uncommon: 20,
+    rare: 7.5,
+    legendary: 2.5,
+    mythic: 0.2,
+    exotic: 0
+}
+
+if (multiplier === 2) {
+    return {
+        common: 45,
+        uncommon: 20,
+        rare: 20,
+        legendary: 7,
+        mythic: 3,
         exotic: 0
     }
+}
 
-    if (multiplier === 2) {
-        return {
-            common: 55,
-            rare: 30,
-            legendary: 12,
-            mythic: 2.5,
-            exotic: 0
-        }
+if (multiplier === 3) {
+    return {
+        common: 0,
+        uncommon: 5,
+        rare: 25,
+        legendary: 30,
+        mythic: 15,
+        exotic: 0
     }
-
-    if (multiplier === 3) {
-        return {
-            common: 10,
-            rare: 25,
-            legendary: 45,
-            mythic: 18,
-            exotic: 0
-        }
-    }
+}
 
     return baseWeights
 }
