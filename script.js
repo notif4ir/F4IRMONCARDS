@@ -212,30 +212,28 @@ if (filter === 'all') {
 rollRandomCard() {
     this.playSound('click')
 
-    this.rollBtn.style.transform = 'scale(1.2)'
-    this.rollBtn.disabled = true
+    const multiplier = parseInt(this.rollMultiplier.value)
+    const adjustedWeights = this.getAdjustedWeights(multiplier)
+
+    const rarities = Object.keys(adjustedWeights)
+    const rarityWeights = rarities.map(r => adjustedWeights[r])
+    const totalRarityWeight = rarityWeights.reduce((a, b) => a + b, 0)
+
+    let rand = Math.random() * totalRarityWeight
+    let selectedRarity = rarities[0]
+
+    for (let i = 0; i < rarities.length; i++) {
+        rand -= rarityWeights[i]
+        if (rand <= 0) {
+            selectedRarity = rarities[i]
+            break
+        }
+    }
+
+    this.animateRollButton(selectedRarity)
 
     setTimeout(() => {
-        this.rollBtn.style.transform = 'scale(1)'
         this.rollBtn.disabled = false
-
-        const multiplier = parseInt(this.rollMultiplier.value)
-        const adjustedWeights = this.getAdjustedWeights(multiplier)
-
-        const rarities = Object.keys(adjustedWeights)
-        const rarityWeights = rarities.map(r => adjustedWeights[r])
-        const totalRarityWeight = rarityWeights.reduce((a, b) => a + b, 0)
-
-        let rand = Math.random() * totalRarityWeight
-        let selectedRarity = rarities[0]
-
-        for (let i = 0; i < rarities.length; i++) {
-            rand -= rarityWeights[i]
-            if (rand <= 0) {
-                selectedRarity = rarities[i]
-                break
-            }
-        }
 
         const cardsInRarity = this.cards.filter(c => c.rarity === selectedRarity)
         const totalCardWeight = cardsInRarity.reduce((sum, card) => {
@@ -261,6 +259,7 @@ rollRandomCard() {
         this.openModal(selectedCard)
     }, 800)
 }
+
 
 getAdjustedWeights(multiplier) {
 const baseWeights = {
