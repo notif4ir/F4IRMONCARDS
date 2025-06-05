@@ -300,13 +300,20 @@ const RARITY_CONFIG = {
     rare: {
         label: 'Rare',
         minPercentage: 3,
-        maxPercentage: 10,
+        maxPercentage: 8,
         particleCount: 7,
         glowIntensity: 'medium'
     },
+    uncommon: {
+        label: 'Uncommon',
+        minPercentage: 8,
+        maxPercentage: 12,
+        particleCount: 4,
+        glowIntensity: 'low'
+    },
     common: {
         label: 'Common',
-        minPercentage: 10,
+        minPercentage: 12,
         maxPercentage: 100,
         particleCount: 3,
         glowIntensity: 'low'
@@ -319,5 +326,6 @@ const RARITY_PERCENTAGES = {
     mythic: 0.2,
     legendary: 2.5,
     rare: 7.5,
-    common: 89.8
+    uncommon: 60,
+    common: 86
 };
