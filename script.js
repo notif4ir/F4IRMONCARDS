@@ -226,34 +226,37 @@ rollRandomCard() {
         const rarityWeights = rarities.map(r => adjustedWeights[r])
         const totalRarityWeight = rarityWeights.reduce((a, b) => a + b, 0)
 
-let randCard = Math.random() * totalCardWeight
-let selectedCard = null
+        let rand = Math.random() * totalRarityWeight
+        let selectedRarity = rarities[0]
 
-for (const card of cardsInRarity) {
-    const weight = parseFloat(card.percentage)
-    if (isNaN(weight) || weight <= 0) continue
-    randCard -= weight
-    if (randCard <= 0) {
-        selectedCard = card
-        break
-    }
-}
-
-if (!selectedCard) selectedCard = cardsInRarity[Math.floor(Math.random() * cardsInRarity.length)]
+        for (let i = 0; i < rarities.length; i++) {
+            rand -= rarityWeights[i]
+            if (rand <= 0) {
+                selectedRarity = rarities[i]
+                break
+            }
+        }
 
         const cardsInRarity = this.cards.filter(c => c.rarity === selectedRarity)
-        const totalCardWeight = cardsInRarity.reduce((sum, card) => sum + parseFloat(card.percentage), 0)
+        const totalCardWeight = cardsInRarity.reduce((sum, card) => {
+            const weight = parseFloat(card.percentage)
+            return isNaN(weight) ? sum : sum + weight
+        }, 0)
 
         let randCard = Math.random() * totalCardWeight
-        let selectedCard = cardsInRarity[0]
+        let selectedCard = null
 
         for (const card of cardsInRarity) {
-            randCard -= parseFloat(card.percentage)
+            const weight = parseFloat(card.percentage)
+            if (isNaN(weight) || weight <= 0) continue
+            randCard -= weight
             if (randCard <= 0) {
                 selectedCard = card
                 break
             }
         }
+
+        if (!selectedCard) selectedCard = cardsInRarity[Math.floor(Math.random() * cardsInRarity.length)]
 
         this.openModal(selectedCard)
     }, 800)
