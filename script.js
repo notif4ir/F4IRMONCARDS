@@ -267,7 +267,7 @@ const baseWeights = {
     common: 70,
     uncommon: 20,
     rare: 7.5,
-    legendary: 2.5,
+    legendary: 2.3,
     mythic: 0.2,
     exotic: 0
 }
@@ -275,8 +275,8 @@ const baseWeights = {
 if (multiplier === 2) {
     return {
         common: 45,
-        uncommon: 20,
-        rare: 20,
+        uncommon: 24,
+        rare: 23,
         legendary: 7,
         mythic: 3,
         exotic: 0
