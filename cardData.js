@@ -56,7 +56,7 @@ const CARD_DATA = [
         rarity: 'legendary',
         percentage: 1
     },
-        {
+    {
         id: 'rush',
         name: 'Rush',
         image: '/Rush.png',
@@ -170,8 +170,8 @@ const CARD_DATA = [
     },
     {
         id: 'huggy',
-        name: 'Figure',
-        image: '/Figure.png',
+        name: 'Huggy Wuggy',
+        image: '/Huggy wuggy.png',
         description: 'Comes from the game "Poppy Playtime" an horror game, this is one of the first experiments you find in Poppy Playtime. aGVpc2NvbWluZw==',
         rarity: 'rare',
         percentage: 4
