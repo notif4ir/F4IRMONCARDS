@@ -209,6 +209,32 @@ if (filter === 'all') {
         }
     }
 
+animateRollButton(rarity) {
+    this.rollBtn.disabled = true
+
+    const rarityEffects = {
+        common: { scale: 1.1, color: '#95a5a6', glow: '0 0 8px #95a5a6' },
+        uncommon: { scale: 1.2, color: '#27ae60', glow: '0 0 12px #27ae60' },
+        rare: { scale: 1.3, color: '#3498db', glow: '0 0 14px #3498db' },
+        legendary: { scale: 1.5, color: '#f1c40f', glow: '0 0 20px #f1c40f' },
+        mythic: { scale: 1.7, color: '#9b59b6', glow: '0 0 24px #9b59b6' },
+        exotic: { scale: 2, color: '#e74c3c', glow: '0 0 30px #e74c3c' }
+    }
+
+    const effect = rarityEffects[rarity] || rarityEffects.common
+
+    this.rollBtn.style.transition = 'transform 0.8s ease, box-shadow 0.8s ease, background-color 0.8s ease'
+    this.rollBtn.style.transform = `scale(${effect.scale})`
+    this.rollBtn.style.backgroundColor = effect.color
+    this.rollBtn.style.boxShadow = effect.glow
+
+    setTimeout(() => {
+        this.rollBtn.style.transform = 'scale(1)'
+        this.rollBtn.style.backgroundColor = ''
+        this.rollBtn.style.boxShadow = ''
+    }, 800)
+}
+    
 rollRandomCard() {
     this.playSound('click')
 
