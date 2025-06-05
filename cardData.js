@@ -137,6 +137,70 @@ const CARD_DATA = [
         percentage: 3
     },
     {
+        id: 'sadpou',
+        name: 'Sad Pou',
+        image: '/Sad pou.png',
+        description: 'The pou we all know and love is sad, he is saying that nothing is new.',
+        rarity: 'rare',
+        percentage: 6
+    },
+    {
+        id: 'chickenjockey',
+        name: 'Chicken Jockey',
+        image: '/Chicken jockey.png',
+        description: 'Comes from minecraft, but in this card its the "Minecraft Movie" version. CHICKEN JOCKEY!',
+        rarity: 'common',
+        percentage: 14
+    },
+    {
+        id: 'doey',
+        name: 'Doey',
+        image: '/Doey.png',
+        description: 'Comes from the game "Poppy Playtime" an horror game, this guy is made of playdough or something. DONT make him angry...',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'banban',
+        name: 'Banban',
+        image: '/Banban.png',
+        description: 'Comes from the funky game named Garten Of Banban which is an "horror game" but its really not that scary, this is the one behind all of them.',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'huggy',
+        name: 'Figure',
+        image: '/Figure.png',
+        description: 'Comes from the game "Poppy Playtime" an horror game, this is one of the first experiments you find in Poppy Playtime. aGVpc2NvbWluZw==',
+        rarity: 'rare',
+        percentage: 4
+    },
+    {
+        id: 'catnap',
+        name: 'Catnap',
+        image: '/Catnap.png',
+        description: 'Comes from the game "Poppy Playtime" an horror game, found in chapter 3 and might be the biggest monster you see throughout all the previous chapters. He is pretty scared of lightning. aGVpc25vdGp1c3RhY2F0',
+        rarity: 'legendary',
+        percentage: 3
+    },
+    {
+        id: 'mommylonglegs',
+        name: 'Mommy Long Legs',
+        image: '/Mommy long legs.png',
+        description: 'Comes from the game "Poppy Playtime" an horror game, looks like an scary strechable ZG9sbGRvbGxkb2xsZG9sbGRvbGxkb2xs. One of the main characters mother in Poppy Playtime. Li4u',
+        rarity: 'rare',
+        percentage: 4
+    },
+    {
+        id: 'amogus',
+        name: 'Amogus',
+        image: '/Amogus.png',
+        description: 'This guy is pretty suspicious... AMOGUS IS THE IMPOSTER AMONG ALL OF US',
+        rarity: 'rare',
+        percentage: 4.5
+    },
+    {
         id: 'grumble',
         name: 'Grumble',
         image: '/Grumble.png',
