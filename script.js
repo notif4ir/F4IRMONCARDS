@@ -196,16 +196,19 @@ class PokemonCardViewer {
     }
 
     filterCards(filter) {
-        this.currentFilter = filter;
-        
-        if (filter === 'all') {
-            this.filteredCards = [...this.cards];
+    this.currentFilter = filter
+
+    if (filter === 'all') {
+            this.filteredCards = [...this.cards]
         } else {
-            this.filteredCards = this.cards.filter(card => card.rarity === filter);
+            this.filteredCards = this.cards.filter(card => card.rarity === filter)
         }
-        
-        this.applySearch();
-        this.renderCards();
+    
+        this.applySearch()
+    
+        this.filteredCards.sort((a, b) => a.percentage - b.percentage)
+    
+        this.renderCards()
     }
 
     applySearch() {
