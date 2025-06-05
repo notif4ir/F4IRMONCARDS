@@ -206,10 +206,17 @@ filterCards(filter) {
 
     this.applySearch()
 
-    this.filteredCards.sort((a, b) => parseFloat(a.percentage) - parseFloat(b.percentage))
+    const rarityOrder = ['common', 'rare', 'legendary', 'mythic', 'exotic']
+
+    this.filteredCards.sort((a, b) => {
+        const rarityDiff = rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
+        if (rarityDiff !== 0) return rarityDiff
+        return parseFloat(b.percentage) - parseFloat(a.percentage)
+    })
 
     this.renderCards()
 }
+
 
     applySearch() {
         const searchTerm = this.searchInput.value.toLowerCase();
