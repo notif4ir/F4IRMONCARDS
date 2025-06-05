@@ -78,7 +78,7 @@ const CARD_DATA = [
         image: '/Blue.png',
         description: 'One of the Roblox "Rainbow Friends" members, he likes to hug people.',
         rarity: 'common',
-        percentage: 14
+        percentage: 12
     },
     {
         id: 'mrarms',
@@ -142,7 +142,7 @@ const CARD_DATA = [
         image: '/Sad pou.png',
         description: 'The pou we all know and love is sad, he is saying that nothing is new.',
         rarity: 'rare',
-        percentage: 6
+        percentage: 5
     },
     {
         id: 'chickenjockey',
@@ -222,7 +222,7 @@ const CARD_DATA = [
         image: '/John Doe.png',
         description: 'He likes playing with playdough',
         rarity: 'rare',
-        percentage: 3
+        percentage: 3.5
     },
     {
         id: 'kj',
@@ -262,15 +262,15 @@ const CARD_DATA = [
         image: '/Gubby.png',
         description: 'This guy is the best killer in Forsaken (lie), he is very sweet AND OVERPOWERED (lie).',
         rarity: 'rare',
-        percentage: 8
+        percentage: 5
     },
     {
         id: 'slap',
         name: 'Slap',
         image: '/Slap.png',
         description: 'One of KJs enemies, he likes to slap KJ till he gets mad.',
-        rarity: 'common',
-        percentage: 10
+        rarity: 'uncommon',
+        percentage: 9
     }
 ];
 
